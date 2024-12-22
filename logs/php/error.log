@@ -2,3 +2,93 @@
 [21-Dec-2024 14:14:30 UTC] PHP Warning:  Undefined array key 1 in C:\Users\P52\Local Sites\cafely\app\public\wp-content\plugins\woocommerce\src\Admin\Features\ProductBlockEditor\RedirectionController.php on line 159
 [21-Dec-2024 14:15:45 UTC] PHP Warning:  Undefined array key 1 in C:\Users\P52\Local Sites\cafely\app\public\wp-content\plugins\woocommerce\src\Admin\Features\ProductBlockEditor\RedirectionController.php on line 158
 [21-Dec-2024 14:15:45 UTC] PHP Warning:  Undefined array key 1 in C:\Users\P52\Local Sites\cafely\app\public\wp-content\plugins\woocommerce\src\Admin\Features\ProductBlockEditor\RedirectionController.php on line 159
+[22-Dec-2024 09:58:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on int in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:193
+Stack trace:
+#0 [internal function]: {closure}(68)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(201): array_map(Object(Closure), Array)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): custom_search(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/sear...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/sear...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 193
+[22-Dec-2024 09:58:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on int in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:193
+Stack trace:
+#0 [internal function]: {closure}(68)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(201): array_map(Object(Closure), Array)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): custom_search(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/sear...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/sear...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 193
+[22-Dec-2024 09:58:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on int in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:193
+Stack trace:
+#0 [internal function]: {closure}(68)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(201): array_map(Object(Closure), Array)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): custom_search(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/sear...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/sear...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 193
+[22-Dec-2024 09:58:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on int in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:193
+Stack trace:
+#0 [internal function]: {closure}(68)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(201): array_map(Object(Closure), Array)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): custom_search(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/sear...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/sear...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 193
+[22-Dec-2024 09:58:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on int in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:193
+Stack trace:
+#0 [internal function]: {closure}(68)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(201): array_map(Object(Closure), Array)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): custom_search(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/sear...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/sear...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 193

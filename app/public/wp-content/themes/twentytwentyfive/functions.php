@@ -175,26 +175,34 @@ function custom_search($request) {
 			return new WP_Error('no_keyword', 'You must provide a search keyword', array('status' => 400));
 	}
 
-	// Tìm kiếm sản phẩm WooCommerce
-	$products = wc_get_products(array(
-			'limit' => -1,
-			'search' => $keyword,
+	// Tìm kiếm sản phẩm WooCommerce chỉ trong tiêu đề
+	$query = new WP_Query(array(
+			'post_type' => 'product',
+			'posts_per_page' => -1,
+			'post_status' => 'publish',
+			's' => $keyword, // Tìm kiếm
+			'fields' => 'ids', // Chỉ trả về ID
 	));
 
-	$product_results = array_map(function ($product) {
+	$products = array_map(function ($product_id) {
+			$product = wc_get_product($product_id);
 			return array(
 					'id' => $product->get_id(),
 					'name' => $product->get_name(),
-					'price' => $product->get_slug(),
-					'slug' => $product->get_sale_price(),
+					'slug' => $product->get_slug(),
+					'price' => $product->get_regular_price(),
+					'sale_price' => $product->get_sale_price(),
+					'average_rating' => $product->get_average_rating(),
+					'rating_count' => $product->get_rating_count(),
 			);
-	}, $products);
+	}, $query->posts);
 
-	// Tìm kiếm bài viết
+	// Tìm kiếm bài viết WordPress
 	$posts = get_posts(array(
-			's' => $keyword,
+			's' => $keyword, // Tìm kiếm trong tiêu đề bài viết
 			'post_type' => 'post',
 			'posts_per_page' => -1,
+			'post_status' => 'publish',
 	));
 
 	$post_results = array_map(function ($post) {
@@ -207,7 +215,30 @@ function custom_search($request) {
 	}, $posts);
 
 	return array(
-			'products' => $product_results,
+			'products' => $products,
 			'posts' => $post_results,
 	);
 }
+
+function log_search_query($query) {
+	if ($query->is_search && !is_admin()) {
+			global $wpdb;
+
+			// Lấy từ khóa tìm kiếm
+			$search_query = get_search_query();
+
+			if (!empty($search_query)) {
+					// Lưu vào bảng custom trong database
+					$wpdb->insert(
+							$wpdb->prefix . 'search_log', // Tên bảng
+							array(
+									'keyword' => $search_query,
+									'search_count' => 1, // Mặc định là 1 lần
+									'last_searched' => current_time('mysql') // Thời gian hiện tại
+							),
+							array('%s', '%d', '%s') // Định dạng
+					);
+			}
+	}
+}
+add_action('pre_get_posts', 'log_search_query');
