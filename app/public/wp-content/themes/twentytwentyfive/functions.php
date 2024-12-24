@@ -193,7 +193,7 @@ function custom_search($request) {
 					'image' => wp_get_attachment_image_url($product->get_image_id(), 'full'),
 					'regular_price' => $product->get_regular_price(),
 					'sale_price' => $product->get_sale_price(),
-					'average_rating' => $product->get_average_rating(),
+					'average_rating' => number_format((float) $product->get_average_rating(), 2),
 					'rating_count' => $product->get_rating_count(),
 			);
 	}, $query->posts);
@@ -207,13 +207,15 @@ function custom_search($request) {
 	));
 
 	$post_results = array_map(function ($post) {
-			return array(
-					'id' => $post->ID,
-					'title' => $post->post_title,
-					'excerpt' => wp_trim_words($post->post_content, 30),
-					'slug' => $post->post_name,
-			);
-	}, $posts);
+    return array(
+        'id' => $post->ID,
+        'title' => $post->post_title,
+        'excerpt' => wp_trim_words($post->post_content, 30),
+        'slug' => $post->post_name,
+        'thumbnail' => get_the_post_thumbnail_url($post->ID, 'full') ?: 'https://example.com/default-image.jpg', // URL ảnh mặc định
+    );
+}, $posts);
+
 
 	return array(
 			'products' => $products,
