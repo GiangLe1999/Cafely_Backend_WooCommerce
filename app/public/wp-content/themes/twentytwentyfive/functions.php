@@ -255,8 +255,8 @@ function create_custom_tables() {
 	$user_table = $wpdb->prefix . 'custom_user';
 	$user_sql = "CREATE TABLE $user_table (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
-			first_name varchar(50) NOT NULL,
-			last_name varchar(50) NOT NULL,
+      first_name varchar(50) DEFAULT NULL,
+      last_name varchar(50) DEFAULT NULL,
 			email varchar(100) NOT NULL,
 			password varchar(255) NOT NULL,
  			created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -360,8 +360,7 @@ function create_custom_user($request) {
 	$params = $request->get_params();
 	
 	// Kiểm tra các trường bắt buộc
-	if (empty($params['first_name']) || empty($params['last_name']) || 
-			empty($params['email']) || empty($params['password'])) {
+	if empty($params['email']) || empty($params['password']) {
 			return new WP_Error('missing_fields', 'Vui lòng cung cấp đầy đủ thông tin', array('status' => 400));
 	}
 	
