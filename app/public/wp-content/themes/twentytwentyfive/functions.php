@@ -360,7 +360,7 @@ function create_custom_user($request) {
 	$params = $request->get_params();
 	
 	// Kiểm tra các trường bắt buộc
-	if empty($params['email']) || empty($params['password']) {
+	if (empty($params['email']) || empty($params['password'])) {
 			return new WP_Error('missing_fields', 'Vui lòng cung cấp đầy đủ thông tin', array('status' => 400));
 	}
 	
