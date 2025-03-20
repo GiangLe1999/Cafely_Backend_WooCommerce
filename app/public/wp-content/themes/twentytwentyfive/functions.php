@@ -246,29 +246,99 @@ function log_search_query($query) {
 }
 add_action('pre_get_posts', 'log_search_query');
 
-function create_custom_user_table() {
+function create_custom_tables() {
 	global $wpdb;
-	$table_name = $wpdb->prefix . 'custom_user';
-	
 	$charset_collate = $wpdb->get_charset_collate();
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 	
-	$sql = "CREATE TABLE $table_name (
+	// 1. Bảng users (đã có)
+	$user_table = $wpdb->prefix . 'custom_user';
+	$user_sql = "CREATE TABLE $user_table (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			first_name varchar(50) NOT NULL,
 			last_name varchar(50) NOT NULL,
 			email varchar(100) NOT NULL,
 			password varchar(255) NOT NULL,
-			created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+ 			created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+			updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			PRIMARY KEY  (id),
 			UNIQUE KEY email (email)
 	) $charset_collate;";
+	dbDelta($user_sql);
 	
-	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-	dbDelta($sql);
+	// 2. Bảng địa chỉ
+	$address_table = $wpdb->prefix . 'custom_user_address';
+	$address_sql = "CREATE TABLE $address_table (
+			id mediumint(9) NOT NULL AUTO_INCREMENT,
+			user_id mediumint(9) NOT NULL,
+			address_type varchar(20) DEFAULT 'shipping', /* shipping hoặc billing */
+			is_default tinyint(1) DEFAULT 0,
+			first_name varchar(50) DEFAULT '',
+			last_name varchar(50) DEFAULT '',
+			company varchar(100) DEFAULT '',
+			address_line1 varchar(255) NOT NULL,
+			address_line2 varchar(255) DEFAULT '',
+			city varchar(100) NOT NULL,
+			state varchar(100) DEFAULT '',
+			postcode varchar(20) DEFAULT '',
+			country varchar(100) DEFAULT '',
+			phone varchar(20) DEFAULT '',
+			created_at datetime DEFAULT CURRENT_TIMESTAMP,
+			updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			PRIMARY KEY (id),
+			KEY user_id (user_id),
+			CONSTRAINT fk_address_user FOREIGN KEY (user_id) REFERENCES {$user_table} (id) ON DELETE CASCADE
+	) $charset_collate;";
+	dbDelta($address_sql);
+	
+	// 3. Bảng liên kết với WooCommerce orders
+	$link_table = $wpdb->prefix . 'custom_user_wc_orders';
+	$link_sql = "CREATE TABLE $link_table (
+			id mediumint(9) NOT NULL AUTO_INCREMENT,
+			user_id mediumint(9) NOT NULL,
+			order_id bigint(20) NOT NULL,
+			created_at datetime DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (id),
+			UNIQUE KEY user_order (user_id, order_id),
+			KEY user_id (user_id),
+			KEY order_id (order_id),
+			CONSTRAINT fk_order_user FOREIGN KEY (user_id) REFERENCES {$user_table} (id) ON DELETE CASCADE
+	) $charset_collate;";
+	dbDelta($link_sql);
 }
 
-// Kích hoạt function khi plugin được kích hoạt hoặc khi theme được khởi tạo
-add_action('init', 'create_custom_user_table');
+add_action('init', 'create_custom_tables');
+
+// Hook để liên kết đơn hàng WooCommerce với custom user
+function link_wc_order_to_custom_user($order_id) {
+	// Chỉ chạy cho đơn hàng mới
+	if (!$order_id) return;
+	
+	$order = wc_get_order($order_id);
+	$email = $order->get_billing_email();
+	
+	global $wpdb;
+	$user_table = $wpdb->prefix . 'custom_user';
+	$link_table = $wpdb->prefix . 'custom_user_wc_orders';
+	
+	// Tìm custom user bằng email
+	$user_id = $wpdb->get_var($wpdb->prepare(
+			"SELECT id FROM $user_table WHERE email = %s",
+			$email
+	));
+	
+	// Nếu tìm thấy user, liên kết với đơn hàng
+	if ($user_id) {
+			$wpdb->insert(
+					$link_table,
+					array(
+							'user_id' => $user_id,
+							'order_id' => $order_id
+					)
+			);
+	}
+}
+add_action('woocommerce_new_order', 'link_wc_order_to_custom_user');
 
 // Đăng ký REST API endpoint
 function register_custom_user_api() {
@@ -339,4 +409,128 @@ function create_custom_user($request) {
 			'email' => $params['email'],
 			'created_at' => current_time('mysql')
 	);
+}
+
+
+// Đăng ký REST API endpoint cho đăng nhập
+function register_custom_user_login_api() {
+	register_rest_route('custom/v1', '/login', array(
+			'methods' => 'POST',
+			'callback' => 'custom_user_login',
+			'permission_callback' => function() {
+					return true; // API đăng nhập nên là public
+			}
+	));
+}
+add_action('rest_api_init', 'register_custom_user_login_api');
+
+// Hàm xử lý đăng nhập
+function custom_user_login($request) {
+	// Lấy dữ liệu từ request
+	$params = $request->get_params();
+	
+	// Kiểm tra các trường bắt buộc
+	if (empty($params['email']) || empty($params['password'])) {
+			return new WP_Error('missing_fields', 'Vui lòng cung cấp email và mật khẩu', array('status' => 400));
+	}
+	
+	// Kiểm tra email hợp lệ
+	if (!is_email($params['email'])) {
+			return new WP_Error('invalid_email', 'Email không hợp lệ', array('status' => 400));
+	}
+	
+	global $wpdb;
+	$table_name = $wpdb->prefix . 'custom_user';
+	
+	// Lấy thông tin user từ email
+	$user = $wpdb->get_row($wpdb->prepare(
+			"SELECT id, first_name, last_name, email, password FROM $table_name WHERE email = %s",
+			$params['email']
+	));
+	
+	// Kiểm tra xem user có tồn tại không
+	if (!$user) {
+			return new WP_Error('user_not_found', 'Người dùng không tồn tại', array('status' => 404));
+	}
+	
+	// Kiểm tra mật khẩu
+	if (!wp_check_password($params['password'], $user->password)) {
+			return new WP_Error('incorrect_password', 'Mật khẩu không chính xác', array('status' => 401));
+	}
+	
+	// Trả về thông tin user (không bao gồm mật khẩu)
+	return array(
+			'id' => $user->id,
+			'first_name' => $user->first_name,
+			'last_name' => $user->last_name,
+			'email' => $user->email,
+	);
+}
+
+// Hàm để lấy đơn hàng của user
+function get_custom_user_orders($user_id) {
+	global $wpdb;
+	$link_table = $wpdb->prefix . 'custom_user_wc_orders';
+	
+	// Lấy tất cả order ID của user này
+	$order_ids = $wpdb->get_col($wpdb->prepare(
+			"SELECT order_id FROM $link_table WHERE user_id = %d",
+			$user_id
+	));
+	
+	$orders = array();
+	if (!empty($order_ids)) {
+			foreach ($order_ids as $order_id) {
+					$orders[] = wc_get_order($order_id);
+			}
+	}
+	
+	return $orders;
+}
+
+// Đăng ký API endpoint để lấy đơn hàng
+function register_custom_user_orders_api() {
+	register_rest_route('custom/v1', '/users/(?P<id>\d+)/orders', array(
+			'methods' => 'GET',
+			'callback' => 'get_custom_user_orders_api',
+			'permission_callback' => function() {
+					return true; // Hoặc kiểm tra auth token của bạn
+			}
+	));
+}
+add_action('rest_api_init', 'register_custom_user_orders_api');
+
+function get_custom_user_orders_api($request) {
+	$user_id = $request['id'];
+	
+	global $wpdb;
+	$user_table = $wpdb->prefix . 'custom_user';
+	
+	// Kiểm tra user có tồn tại không
+	$user = $wpdb->get_row($wpdb->prepare(
+			"SELECT id FROM $user_table WHERE id = %d",
+			$user_id
+	));
+	
+	if (!$user) {
+			return new WP_Error('user_not_found', 'Người dùng không tồn tại', array('status' => 404));
+	}
+	
+	// Lấy đơn hàng
+	$orders = get_custom_user_orders($user_id);
+	$order_data = array();
+	
+	foreach ($orders as $order) {
+			$order_data[] = array(
+					'id' => $order->get_id(),
+					'status' => $order->get_status(),
+					'total' => $order->get_total(),
+					'currency' => $order->get_currency(),
+					'date_created' => $order->get_date_created()->date('Y-m-d H:i:s'),
+					'items_count' => count($order->get_items()),
+					'payment_method' => $order->get_payment_method_title()
+			);
+	}
+	
+	return $order_data;
 }
