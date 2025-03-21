@@ -305,9 +305,354 @@ function create_custom_tables() {
 			CONSTRAINT fk_order_user FOREIGN KEY (user_id) REFERENCES {$user_table} (id) ON DELETE CASCADE
 	) $charset_collate;";
 	dbDelta($link_sql);
+
+	// 4. Bảng lưu reset password token
+	$reset_table = $wpdb->prefix . 'custom_password_reset';
+	$reset_sql = "CREATE TABLE $reset_table (
+		id mediumint(9) NOT NULL AUTO_INCREMENT,
+		user_id mediumint(9) NOT NULL,
+		token varchar(64) NOT NULL,
+		expires_at datetime NOT NULL,
+		created_at datetime DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (id),
+		UNIQUE KEY token (token),
+		UNIQUE KEY user_id (user_id),
+		CONSTRAINT fk_reset_user FOREIGN KEY (user_id) REFERENCES {$user_table} (id) ON DELETE CASCADE
+) $charset_collate;";
+dbDelta($reset_sql);
 }
 
-add_action('init', 'create_custom_tables');
+function create_custom_tables_if_not_exists() {
+	global $wpdb;
+	
+	// Define all tables that need to be checked
+	$tables = array(
+			$wpdb->prefix . 'custom_user',
+			$wpdb->prefix . 'custom_user_address',
+			$wpdb->prefix . 'custom_user_wc_orders',
+			$wpdb->prefix . 'custom_password_reset'
+	);
+	
+	// Check if all tables exist
+	$all_tables_exist = true;
+	foreach ($tables as $table_name) {
+			if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+					$all_tables_exist = false;
+					break;
+			}
+	}
+	
+	// If any table is missing, create all tables
+	if (!$all_tables_exist) {
+			create_custom_tables();
+	}
+}
+
+add_action('after_setup_theme', 'create_custom_tables_if_not_exists');
+
+/**
+ * Tạo token reset password
+ *
+ * @param int $user_id ID của người dùng
+ * @return string Token được tạo
+ */
+function generate_reset_token($user_id) {
+	global $wpdb;
+	$reset_table = $wpdb->prefix . 'custom_password_reset';
+	$user_table = $wpdb->prefix . 'custom_user';
+	
+	// Kiểm tra user_id có tồn tại
+	$user_exists = $wpdb->get_var($wpdb->prepare(
+			"SELECT id FROM $user_table WHERE id = %d",
+			$user_id
+	));
+	
+	if (!$user_exists) {
+			return false;
+	}
+	
+	// Tạo token ngẫu nhiên
+	$token = bin2hex(random_bytes(32));
+	
+	// Tính thời gian hết hạn (24 giờ)
+	$expires_at = date('Y-m-d H:i:s', strtotime('+24 hours'));
+
+	// Xóa token cũ nếu có
+	$wpdb->delete(
+		$reset_table,
+		['user_id' => $user_id],
+		['%d']
+	);
+	
+	// Lưu token mới
+	$wpdb->insert(
+			$reset_table,
+			[
+					'user_id' => $user_id,
+					'token' => $token,
+					'expires_at' => $expires_at
+			],
+			['%d', '%s', '%s']
+	);
+	
+	if ($wpdb->last_error) {
+			error_log('DB Error: ' . $wpdb->last_error);
+			return false;
+	}
+	
+	return $token;
+}
+
+/**
+* Xác thực token reset password
+*
+* @param string $token Token cần xác thực
+* @return int|false ID người dùng nếu token hợp lệ, false nếu không
+*/
+function verify_reset_token($token) {
+	global $wpdb;
+	$reset_table = $wpdb->prefix . 'custom_password_reset';
+	
+	$reset_record = $wpdb->get_row($wpdb->prepare(
+			"SELECT user_id, expires_at FROM $reset_table WHERE token = %s",
+			$token
+	));
+	
+	// Nếu không tìm thấy token hoặc token đã hết hạn
+	if (!$reset_record || strtotime($reset_record->expires_at) < time()) {
+			return false;
+	}
+	
+	return $reset_record->user_id;
+}
+
+/**
+* Xóa token reset password sau khi sử dụng
+*
+* @param string $token Token cần xóa
+* @return bool Kết quả xóa
+*/
+function delete_reset_token($token) {
+	global $wpdb;
+	$reset_table = $wpdb->prefix . 'custom_password_reset';
+	
+	$result = $wpdb->delete(
+			$reset_table,
+			['token' => $token],
+			['%s']
+	);
+	
+	return $result !== false;
+}
+
+/**
+* Cập nhật mật khẩu
+*
+* @param int $user_id ID người dùng
+* @param string $new_password Mật khẩu mới
+* @return bool Kết quả cập nhật
+*/
+function update_user_password($user_id, $new_password) {
+	global $wpdb;
+	$user_table = $wpdb->prefix . 'custom_user';
+	
+	// Hash mật khẩu
+	$hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+	
+	$result = $wpdb->update(
+			$user_table,
+			['password' => $hashed_password],
+			['id' => $user_id],
+			['%s'],
+			['%d']
+	);
+	
+	return $result !== false;
+}
+
+// Đăng ký REST API endpoints
+add_action('rest_api_init', 'register_reset_password_routes');
+
+function register_reset_password_routes() {
+    // Endpoint yêu cầu reset password
+    register_rest_route('custom/v1', '/forgot-password', [
+        'methods' => 'POST',
+        'callback' => 'handle_forgot_password_request',
+        'permission_callback' => '__return_true',
+    ]);
+    
+    // Endpoint cập nhật mật khẩu mới
+    register_rest_route('custom/v1', '/reset-password', [
+        'methods' => 'POST',
+        'callback' => 'handle_reset_password_request',
+        'permission_callback' => '__return_true',
+    ]);
+}
+
+/**
+ * Xử lý yêu cầu quên mật khẩu
+ */
+function handle_forgot_password_request($request) {
+    $params = $request->get_params();
+    $email = sanitize_email($params['email'] ?? '');
+    
+    if (empty($email)) {
+        return new WP_Error(
+            'missing_email',
+            'Email không được để trống',
+            ['status' => 400]
+        );
+    }
+    
+    global $wpdb;
+    $user_table = $wpdb->prefix . 'custom_user';
+    
+    // Tìm user với email
+    $user = $wpdb->get_row($wpdb->prepare(
+        "SELECT id, email, first_name FROM $user_table WHERE email = %s",
+        $email
+    ));
+    
+    // Nếu không tìm thấy user, trả về thông báo thành công để tránh lộ email
+    if (!$user) {
+        return [
+            'success' => true,
+            'message' => 'Nếu email tồn tại, bạn sẽ nhận được hướng dẫn đặt lại mật khẩu'
+        ];
+    }
+    
+    // Tạo token
+    $token = generate_reset_token($user->id);
+    
+    if (!$token) {
+        return new WP_Error(
+            'token_generation_failed',
+            'Không thể tạo token reset password',
+            ['status' => 500]
+        );
+    }
+    
+    // URL frontend
+    $frontend_url = get_option('custom_frontend_url', 'http://localhost:3000');
+    $reset_url = trailingslashit($frontend_url) . "reset-password?token=$token";
+    
+    // Gửi email
+    $name = !empty($user->first_name) ? $user->first_name : 'Bạn';
+    $subject = 'Đặt lại mật khẩu cho tài khoản của bạn';
+    
+    $message = "
+    <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+        <h2>Đặt lại mật khẩu</h2>
+        <p>Xin chào $name,</p>
+        <p>Chúng tôi nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn.</p>
+        <p>Vui lòng nhấp vào liên kết dưới đây để đặt lại mật khẩu:</p>
+        <p>
+            <a 
+                href='$reset_url' 
+                style='display: inline-block; background-color: #0070f3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;'
+            >
+                Đặt lại mật khẩu
+            </a>
+        </p>
+        <p>Liên kết này sẽ hết hạn sau 24 giờ.</p>
+        <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>
+        <p>Trân trọng,</p>
+        <p>Đội ngũ hỗ trợ</p>
+    </div>";
+    
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'From: ' . get_option('blogname') . ' <' . get_option('admin_email') . '>'
+    ];
+    
+    $email_sent = wp_mail($user->email, $subject, $message, $headers);
+    
+    if (!$email_sent) {
+        error_log('Failed to send reset password email to: ' . $user->email);
+    }
+    
+    return [
+        'success' => true,
+        'message' => 'Nếu email tồn tại, bạn sẽ nhận được hướng dẫn đặt lại mật khẩu'
+    ];
+}
+
+/**
+ * Xử lý yêu cầu đặt lại mật khẩu
+ */
+function handle_reset_password_request($request) {
+    $params = $request->get_params();
+    $token = sanitize_text_field($params['token'] ?? '');
+    $new_password = $params['newPassword'] ?? '';
+    
+    if (empty($token) || empty($new_password)) {
+        return new WP_Error(
+            'missing_data',
+            'Token và mật khẩu mới không được để trống',
+            ['status' => 400]
+        );
+    }
+    
+    // Xác thực token
+    $user_id = verify_reset_token($token);
+    
+    if (!$user_id) {
+        return new WP_Error(
+            'invalid_token',
+            'Token không hợp lệ hoặc đã hết hạn',
+            ['status' => 400]
+        );
+    }
+    
+    // Kiểm tra độ mạnh của mật khẩu
+    if (strlen($new_password) < 6) {
+        return new WP_Error(
+            'weak_password',
+            'Mật khẩu phải có ít nhất 6 ký tự',
+            ['status' => 400]
+        );
+    }
+    
+    // Cập nhật mật khẩu
+    $updated = update_user_password($user_id, $new_password);
+    
+    if (!$updated) {
+        return new WP_Error(
+            'update_failed',
+            'Không thể cập nhật mật khẩu',
+            ['status' => 500]
+        );
+    }
+    
+    // Xóa token sau khi sử dụng
+    delete_reset_token($token);
+    
+    return [
+        'success' => true,
+        'message' => 'Mật khẩu đã được đặt lại thành công'
+    ];
+}
+
+/**
+ * Thêm CORS headers cho API
+ */
+function add_cors_headers() {
+    $frontend_url = get_option('custom_frontend_url', 'http://localhost:3000');
+    
+    header('Access-Control-Allow-Origin: ' . $frontend_url);
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Origin, Authorization');
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+        status_header(200);
+        exit();
+    }
+}
+
+add_action('rest_api_init', function() {
+    add_action('rest_pre_serve_request', 'add_cors_headers');
+}, 15);
 
 // Hook để liên kết đơn hàng WooCommerce với custom user
 function link_wc_order_to_custom_user($order_id) {
