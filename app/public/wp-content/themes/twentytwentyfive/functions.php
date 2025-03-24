@@ -540,27 +540,30 @@ function handle_forgot_password_request($request) {
 
     // Gửi email
     $name = !empty($user->first_name) ? $user->first_name : 'Bạn';
-    $subject = 'Đặt lại mật khẩu cho tài khoản của bạn';
+    $subject = 'Customer account password reset';
     
     $message = "
-    <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
-        <h2>Đặt lại mật khẩu</h2>
-        <p>Xin chào $name,</p>
-        <p>Chúng tôi nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn.</p>
-        <p>Vui lòng nhấp vào liên kết dưới đây để đặt lại mật khẩu:</p>
-        <p>
-            <a 
-                href='$reset_url' 
-                style='display: inline-block; background-color: #0070f3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;'
-            >
-                Đặt lại mật khẩu
-            </a>
-        </p>
-        <p>Liên kết này sẽ hết hạn sau 24 giờ.</p>
-        <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>
-        <p>Trân trọng,</p>
-        <p>Đội ngũ hỗ trợ</p>
-    </div>";
+		<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center;'>
+    <h2 style='color: #222222; font-size: 24px;' font-weight: 400>Reset your password</h2>
+
+    <p style='font-size: 16px; line-height: 1.5; color: #777;'>
+        Follow this link to reset your customer account password at 
+        <strong style='color: #FF4A11;'>CAFELY</strong>. If you didn't request a new password, you can safely delete this email.
+    </p>
+
+    <p style='text-align: center; margin: 20px 0;'>
+        <a href='$reset_url' 
+           style='display: inline-block; background-color: #FF4A11; color: white; 
+                  padding: 14px 24px; text-decoration: none; border-radius: 4px; 
+                  font-size: 16px; font-weight: bold;'>
+            Reset your password
+        </a>
+    </p>
+
+    <p style='text-align: center; font-size: 14px;'>
+        or <a href='https://yourstore.com' style='color: #FF4A11; text-decoration: none; font-weight: bold;'>Visit our store</a>
+    </p>
+		</div>";
     
 		// Gọi hàm gửi email
 		$email_sent = send_custom_email($user->email, $subject, $message);
