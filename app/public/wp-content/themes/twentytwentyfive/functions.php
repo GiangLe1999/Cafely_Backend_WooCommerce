@@ -9,6 +9,8 @@
  * @since Twenty Twenty-Five 1.0
  */
 
+require_once get_template_directory() . '/send_mail.php';
+
 // Adds theme support for post formats.
 if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
 	/**
@@ -535,7 +537,7 @@ function handle_forgot_password_request($request) {
     // URL frontend
     $frontend_url = get_option('custom_frontend_url', 'http://localhost:3000');
     $reset_url = trailingslashit($frontend_url) . "reset-password?token=$token";
-    
+
     // Gửi email
     $name = !empty($user->first_name) ? $user->first_name : 'Bạn';
     $subject = 'Đặt lại mật khẩu cho tài khoản của bạn';
@@ -560,12 +562,8 @@ function handle_forgot_password_request($request) {
         <p>Đội ngũ hỗ trợ</p>
     </div>";
     
-    $headers = [
-        'Content-Type: text/html; charset=UTF-8',
-        'From: ' . get_option('blogname') . ' <' . get_option('admin_email') . '>'
-    ];
-    
-    $email_sent = wp_mail($user->email, $subject, $message, $headers);
+		// Gọi hàm gửi email
+		$email_sent = send_custom_email($user->email, $subject, $message);
     
     if (!$email_sent) {
         error_log('Failed to send reset password email to: ' . $user->email);
