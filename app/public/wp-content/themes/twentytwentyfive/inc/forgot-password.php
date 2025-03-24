@@ -149,7 +149,7 @@ function handle_forgot_password_request($request) {
     if (empty($email)) {
         return new WP_Error(
             'missing_email',
-            'Email cannot be empty',
+            'Email cannot be empty.',
             ['status' => 400]
         );
     }
@@ -165,11 +165,11 @@ function handle_forgot_password_request($request) {
     
     // Nếu không tìm thấy user, trả về thông báo thành công để tránh lộ email
     if (!$user) {
-				return new WP_Error(
-					'user_not_found',
-					'User does not exist',
-					['status' => 400]
-			);
+        return new WP_Error(
+            'user_not_found',
+            'User does not exist.',
+            ['status' => 400]
+		);
     }
     
     // Tạo token
@@ -178,21 +178,21 @@ function handle_forgot_password_request($request) {
     if (!$token) {
         return new WP_Error(
             'token_generation_failed',
-            'Cannot generate password reset token',
+            'Cannot generate password reset token.',
             ['status' => 500]
         );
     }
     
     // URL frontend
     $frontend_url = get_option('custom_frontend_url', 'http://localhost:3000');
-    $reset_url = trailingslashit($frontend_url) . "reset-password?token=$token";
+    $reset_url = trailingslashit($frontend_url) . "account/reset-password?token=$token";
 
     // Gửi email
     $name = !empty($user->first_name) ? $user->first_name : 'Bạn';
     $subject = 'Customer account password reset';
     
     $message = "
-		<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center;'>
+		<div style='font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,&quot;Roboto&quot;,&quot;Oxygen&quot;,&quot;Ubuntu&quot;,&quot;Cantarell&quot;,&quot;Fira Sans&quot;,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center;'>
     <h2 style='color: #222222; font-size: 24px;' font-weight: 400>Reset your password</h2>
 
     <p style='font-size: 16px; line-height: 1.5; color: #777;'>
@@ -204,7 +204,7 @@ function handle_forgot_password_request($request) {
         <a href='$reset_url' 
            style='display: inline-block; background-color: #FF4A11; color: white; 
                   padding: 14px 24px; text-decoration: none; border-radius: 4px; 
-                  font-size: 16px; font-weight: bold;'>
+                  font-size: 14px; font-weight: bold;'>
             Reset your password
         </a>
     </p>
@@ -238,7 +238,7 @@ function handle_reset_password_request($request) {
     if (empty($token) || empty($new_password)) {
         return new WP_Error(
             'missing_data',
-            'Token và mật khẩu mới không được để trống',
+            'Token and new password cannot be empty.',
             ['status' => 400]
         );
     }
@@ -249,7 +249,7 @@ function handle_reset_password_request($request) {
     if (!$user_id) {
         return new WP_Error(
             'invalid_token',
-            'Token không hợp lệ hoặc đã hết hạn',
+            'Token is invalid or has expired.',
             ['status' => 400]
         );
     }
@@ -258,7 +258,7 @@ function handle_reset_password_request($request) {
     if (strlen($new_password) < 6) {
         return new WP_Error(
             'weak_password',
-            'Mật khẩu phải có ít nhất 6 ký tự',
+            'Password must be at least 6 characters long.',
             ['status' => 400]
         );
     }
@@ -269,7 +269,7 @@ function handle_reset_password_request($request) {
     if (!$updated) {
         return new WP_Error(
             'update_failed',
-            'Không thể cập nhật mật khẩu',
+            'Unable to update password.',
             ['status' => 500]
         );
     }

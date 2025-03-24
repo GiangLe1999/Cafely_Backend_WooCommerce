@@ -1123,3 +1123,170 @@ Stack trace:
 #5 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
 #6 {main}
   thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 07:07:35 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:07:35 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:07:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:07:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:01 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:01 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:10 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:10 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:14:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:52 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:52 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-cron.php(46): require_once('C:\\Users\\P52\\Lo...')
+#4 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-cron.php(46): require_once('C:\\Users\\P52\\Lo...')
+#4 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:53 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-cron.php(46): require_once('C:\\Users\\P52\\Lo...')
+#4 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:53 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin.php(34): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\P52\\Lo...')
+#4 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin.php(34): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:41:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:42:38 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:42:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin.php(34): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:42:38 UTC] PHP Warning:  require_once(C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 07:42:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public/wp-content/themes/twentytwentyfive/inc/user_address.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php:18
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php on line 18
+[24-Mar-2025 14:07:44 UTC] WordPress database error Table 'local.custom_user' doesn't exist for query SELECT * FROM custom_user WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:07:52 UTC] WordPress database error Table 'local.custom_user' doesn't exist for query SELECT * FROM custom_user WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:08:03 UTC] WordPress database error Table 'local.custom_user' doesn't exist for query SELECT * FROM custom_user WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:09:23 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:09:23 UTC] PHP Warning:  Undefined array key "email" in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 110
+[24-Mar-2025 14:09:23 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 0' at line 1 for query SELECT id FROM  WHERE id = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:09:29 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:09:29 UTC] PHP Warning:  Undefined array key "email" in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 110
+[24-Mar-2025 14:09:29 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 0' at line 1 for query SELECT id FROM  WHERE id = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:09:43 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:09:43 UTC] PHP Warning:  Undefined array key "email" in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 110
+[24-Mar-2025 14:09:43 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 0' at line 1 for query SELECT id FROM  WHERE id = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:10:11 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:10:11 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 3' at line 1 for query SELECT id FROM  WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:10:54 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:10:54 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 3' at line 1 for query SELECT id FROM  WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:12:39 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:12:39 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 3' at line 1 for query SELECT id FROM  WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:18:26 UTC] PHP Warning:  Undefined variable $table_name in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\user_address.php on line 109
+[24-Mar-2025 14:18:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 3' at line 1 for query SELECT id FROM  WHERE id = 3 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
+[24-Mar-2025 14:19:35 UTC] WordPress database error Unknown column 'address_1' in 'field list' for query INSERT INTO `wp_custom_user_address` (`user_id`, `first_name`, `last_name`, `company`, `address_1`, `address_2`, `city`, `state_province`, `country_region`, `postal_zip_code`, `phone`, `is_default`, `created_at`) VALUES (3, 'Le', 'Giang', 'GNF Japan', '16 Ma Hai', '', 'Buon Ma Thuot', 'Alabama', 'United States', '630000', '096233407', 1, '2025-03-24 14:19:35') made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, add_user_address
