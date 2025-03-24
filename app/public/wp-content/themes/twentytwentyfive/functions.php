@@ -501,7 +501,7 @@ function handle_forgot_password_request($request) {
     if (empty($email)) {
         return new WP_Error(
             'missing_email',
-            'Email không được để trống',
+            'Email cannot be empty',
             ['status' => 400]
         );
     }
@@ -517,10 +517,11 @@ function handle_forgot_password_request($request) {
     
     // Nếu không tìm thấy user, trả về thông báo thành công để tránh lộ email
     if (!$user) {
-        return [
-            'success' => true,
-            'message' => 'Nếu email tồn tại, bạn sẽ nhận được hướng dẫn đặt lại mật khẩu'
-        ];
+				return new WP_Error(
+					'user_not_found',
+					'User does not exist',
+					['status' => 400]
+			);
     }
     
     // Tạo token
@@ -529,7 +530,7 @@ function handle_forgot_password_request($request) {
     if (!$token) {
         return new WP_Error(
             'token_generation_failed',
-            'Không thể tạo token reset password',
+            'Cannot generate password reset token',
             ['status' => 500]
         );
     }
