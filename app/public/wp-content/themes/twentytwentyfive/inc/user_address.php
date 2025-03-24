@@ -280,3 +280,132 @@ function register_delete_user_address_api() {
   ]);
 }
 add_action('rest_api_init', 'register_delete_user_address_api');
+
+// Update a user's address
+function update_user_address(WP_REST_Request $request) {
+  global $wpdb;
+  $params = $request->get_json_params();
+  
+  // Check required parameters
+  $address_id = $params['address_id'] ?? 0;
+  $user_id = $params['user_id'] ?? 0;
+  
+  if (!$address_id) {
+      return new WP_Error('missing_address_id', 'Address ID is required.', ['status' => 400]);
+  }
+  
+  if (!$user_id) {
+      return new WP_Error('missing_user_id', 'User ID is required.', ['status' => 400]);
+  }
+  
+  // Verify address belongs to the user to prevent updating someone else's address
+  $table_name = $wpdb->prefix . 'custom_user_address';
+  $existing_address = $wpdb->get_row($wpdb->prepare(
+      "SELECT * FROM $table_name WHERE id = %d AND user_id = %d",
+      $address_id, $user_id
+  ));
+  
+  if (!$existing_address) {
+      return new WP_Error('address_not_found', 'Address not found or does not belong to this user.', ['status' => 404]);
+  }
+  
+  // Handle is_default flag
+  $is_default = isset($params['is_default']) ? (bool)$params['is_default'] : false;
+  
+  // If setting as default, unset other addresses as default
+  if ($is_default) {
+      $wpdb->update(
+          $table_name,
+          ['is_default' => 0],
+          ['user_id' => $user_id],
+          ['%d'],
+          ['%d']
+      );
+  }
+  
+  // Prepare data for update
+  $data = [];
+  $format = [];
+  
+  // Only update fields that are provided in the request
+  $updateable_fields = [
+      'first_name' => '%s',
+      'last_name' => '%s',
+      'company' => '%s',
+      'address_line1' => '%s',
+      'address_line2' => '%s',
+      'city' => '%s',
+      'state' => '%s',
+      'country' => '%s',
+      'postcode' => '%s',
+      'phone' => '%s',
+      'is_default' => '%d'
+  ];
+  
+  $field_mapping = [
+      'address_1' => 'address_line1',
+      'address_2' => 'address_line2',
+      'state_province' => 'state',
+      'country_region' => 'country',
+      'postal_zip_code' => 'postcode'
+  ];
+  
+  foreach ($updateable_fields as $field => $format_type) {
+      // Check direct match first
+      if (isset($params[$field])) {
+          $data[$field] = sanitize_text_field($params[$field]);
+          $format[] = $format_type;
+      } 
+      // Check mapped fields
+      else {
+          $mapped_field = array_search($field, $field_mapping);
+          if ($mapped_field && isset($params[$mapped_field])) {
+              $data[$field] = sanitize_text_field($params[$mapped_field]);
+              $format[] = $format_type;
+          }
+      }
+  }
+  
+  // Handle is_default separately since it's a boolean
+  if (isset($params['is_default'])) {
+      $data['is_default'] = $is_default ? 1 : 0;
+      $format[] = '%d';
+  }
+  
+  // Add updated_at timestamp
+  $data['updated_at'] = current_time('mysql');
+  $format[] = '%s';
+  
+  // If no data to update, return an error
+  if (empty($data)) {
+      return new WP_Error('no_fields', 'No fields to update were provided.', ['status' => 400]);
+  }
+  
+  // Update the database
+  $result = $wpdb->update(
+      $table_name,
+      $data,
+      ['id' => $address_id, 'user_id' => $user_id],
+      $format,
+      ['%d', '%d']
+  );
+  
+  if ($result === false) {
+      return new WP_Error('update_failed', 'Failed to update address: ' . $wpdb->last_error, ['status' => 500]);
+  }
+  
+  return new WP_REST_Response([
+      'success' => true,
+      'message' => 'Address updated successfully',
+  ], 200);
+}
+
+// Register the REST API endpoint
+function register_update_user_address_api() {
+  register_rest_route('custom/v1', '/update-address', [
+      'methods'  => 'POST',
+      'callback' => 'update_user_address',
+      'permission_callback' => '__return_true',
+  ]);
+}
+add_action('rest_api_init', 'register_update_user_address_api');
