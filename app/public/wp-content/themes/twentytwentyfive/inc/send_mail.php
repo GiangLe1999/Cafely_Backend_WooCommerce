@@ -1,9 +1,8 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php';
+require_once get_template_directory() . '/vendor/autoload.php';
 
 function send_custom_email($to, $subject, $body) {
     $mail = new PHPMailer(true);

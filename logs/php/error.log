@@ -1039,3 +1039,87 @@ Stack trace:
 #5 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
 #6 {main}
   thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\send_mail.php on line 6
+[24-Mar-2025 03:02:54 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:02:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(12): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:04:54 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:04:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(13): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:06:55 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:06:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(15): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:48 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(17): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\P52\\Lo...')
+#5 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:49 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(17): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin.php(34): require_once('C:\\Users\\P52\\Lo...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
+#6 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:49 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:08:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(17): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#6 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:09:43 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:09:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(17): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\admin.php(34): require_once('C:\\Users\\P52\\Lo...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-admin\index.php(10): require_once('C:\\Users\\P52\\Lo...')
+#6 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:09:43 UTC] PHP Warning:  require(C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
+[24-Mar-2025 03:09:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc/vendor/autoload.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php:2
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\functions.php(17): require_once()
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(672): include('C:\\Users\\P52\\Lo...')
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-config.php(103): require_once('C:\\Users\\P52\\Lo...')
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-load.php(50): require_once('C:\\Users\\P52\\Lo...')
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(13): require_once('C:\\Users\\P52\\Lo...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#6 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\send_mail.php on line 2
