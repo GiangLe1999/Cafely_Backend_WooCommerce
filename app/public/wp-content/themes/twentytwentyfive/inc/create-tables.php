@@ -95,10 +95,11 @@ function create_custom_tables_if_not_exists() {
 	
 	// Define all tables that need to be checked
 	$tables = array(
-			$wpdb->prefix . 'custom_user',
-			$wpdb->prefix . 'custom_user_address',
-			$wpdb->prefix . 'custom_user_wc_orders',
-			$wpdb->prefix . 'custom_password_reset'
+		$wpdb->prefix . 'custom_user',
+		$wpdb->prefix . 'custom_user_address',
+		$wpdb->prefix . 'custom_user_wc_orders',
+		$wpdb->prefix . 'custom_password_reset',
+		$wpdb->prefix . 'custom_email_subscribers',
 	);
 	
 	// Check if all tables exist

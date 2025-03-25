@@ -65,32 +65,26 @@ function handle_email_subscription(WP_REST_Request $request) {
 
 function handle_email_unsubscription(WP_REST_Request $request) {
   global $wpdb;
-  $email = sanitize_email($request->get_param('email'));
   $token = sanitize_text_field($request->get_param('token'));
 
-  // Validate email and token
-  if (!is_email($email) || empty($token)) {
-      return new WP_Error('invalid_input', 'Invalid email or token', array('status' => 400));
-  }
-
-  // Check if subscriber exists with matching email and token
+  // Tìm subscriber bằng token
   $subscriber = $wpdb->get_row($wpdb->prepare(
-      "SELECT * FROM {$wpdb->prefix}custom_email_subscribers 
-      WHERE email = %s AND unique_token = %s", 
-      $email, $token
+      "SELECT email FROM {$wpdb->prefix}custom_email_subscribers 
+      WHERE unique_token = %s", 
+      $token
   ));
 
   if (!$subscriber) {
-      return new WP_Error('not_found', 'Subscriber not found', array('status' => 404));
+      return new WP_Error('not_found', 'Invalid unsubscribe link', array('status' => 404));
   }
 
   // Update status to unsubscribed
   $update_result = $wpdb->update(
       $wpdb->prefix . 'custom_email_subscribers',
       array('status' => 'unsubscribed'),
-      array('email' => $email, 'unique_token' => $token),
+      array('unique_token' => $token),
       array('%s'),
-      array('%s', '%s')
+      array('%s')
   );
 
   if ($update_result === false) {
@@ -99,6 +93,6 @@ function handle_email_unsubscription(WP_REST_Request $request) {
 
   return rest_ensure_response(array(
       'message' => 'Unsubscription successful',
-      'email' => $email
+      'email' => $subscriber->email
   ));
 }
