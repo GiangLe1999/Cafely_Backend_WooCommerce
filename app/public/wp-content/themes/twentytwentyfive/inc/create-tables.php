@@ -72,8 +72,22 @@ function create_custom_tables() {
 		UNIQUE KEY token (token),
 		UNIQUE KEY user_id (user_id),
 		CONSTRAINT fk_reset_user FOREIGN KEY (user_id) REFERENCES {$user_table} (id) ON DELETE CASCADE
-) $charset_collate;";
-dbDelta($reset_sql);
+	) $charset_collate;";
+	dbDelta($reset_sql);
+
+	// 5. Bảng đăng ký email (Subscribers)
+	$subscribers_table = $wpdb->prefix . 'custom_email_subscribers';
+	$subscribers_sql = "CREATE TABLE $subscribers_table (
+		id mediumint(9) NOT NULL AUTO_INCREMENT,
+		email varchar(100) NOT NULL,
+		status enum('active', 'unsubscribed', 'bounced') DEFAULT 'active',
+		subscription_date datetime DEFAULT CURRENT_TIMESTAMP,
+		unique_token varchar(64) NOT NULL,
+		PRIMARY KEY  (id),
+		UNIQUE KEY email (email),
+		UNIQUE KEY unique_token (unique_token)
+	) $charset_collate;";
+	dbDelta($subscribers_sql);
 }
 
 function create_custom_tables_if_not_exists() {
