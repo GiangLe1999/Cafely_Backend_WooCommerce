@@ -1312,3 +1312,4 @@ Stack trace:
 		UNIQUE KEY email (email),
 		UNIQUE KEY unique_token (unique_token)
 	) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, create_custom_tables_if_not_exists, create_custom_tables, dbDelta
+[26-Mar-2025 09:10:42 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
