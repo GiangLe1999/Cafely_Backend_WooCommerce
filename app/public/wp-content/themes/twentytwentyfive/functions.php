@@ -17,6 +17,7 @@ require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/send_mail.php';
 require_once get_template_directory() . '/inc/user_address.php';
 require_once get_template_directory() . '/inc/subscriber.php';
+require_once get_template_directory() . '/inc/product.php';
 
 // Adds theme support for post formats.
 if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
