@@ -87,6 +87,17 @@ function get_products_by_category_name($category_name) {
     return $products;
 }
 
+// Thêm hàm trợ giúp để lấy hình ảnh đầu tiên từ gallery
+function get_first_gallery_image($product) {
+    $attachment_ids = $product->get_gallery_image_ids();
+    
+    if (!empty($attachment_ids)) {
+        return wp_get_attachment_image_url($attachment_ids[0], 'full');
+    }
+    
+    return '';
+}
+
 /**
  * Helper function to get formatted product data
  * 
@@ -141,12 +152,8 @@ function get_products_data($args) {
                 'total_sales' => $product->get_total_sales(),
                 'stock_status' => $product->get_stock_status(),
                 'categories' => $categories,
-                'images' => array(
-                    'thumbnail' => wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'thumbnail')[0] ?? '',
-                    'medium' => wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'medium')[0] ?? '',
-                    'large' => wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'large')[0] ?? '',
-                    'full' => wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'full')[0] ?? '',
-                )
+                'thumbnail' => wp_get_attachment_image_url($product->get_image_id(), 'medium_large'),
+                'first_gallery_image' => get_first_gallery_image($product)
             );
         }
         wp_reset_postdata();

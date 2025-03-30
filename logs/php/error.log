@@ -1327,3 +1327,273 @@ Stack trace:
 [29-Mar-2025 14:19:24 UTC] Cron unschedule event error for hook: wp_update_user_counts, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"twicedaily","args":[],"interval":43200}
 [29-Mar-2025 14:19:24 UTC] Cron reschedule event error for hook: woocommerce_marketplace_cron_fetch_promotions, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"twicedaily","args":[],"interval":43200}
 [29-Mar-2025 14:19:24 UTC] Cron unschedule event error for hook: woocommerce_marketplace_cron_fetch_promotions, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"twicedaily","args":[],"interval":43200}
+[30-Mar-2025 16:17:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:17:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:17:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:18:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:18:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:19:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:19:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:19:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:19:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:20:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:20:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:20:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:20:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:20:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[30-Mar-2025 16:26:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_first_gallery_image() in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php:146
+Stack trace:
+#0 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(52): get_products_data(Array)
+#1 C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php(18): get_bestseller_products(4)
+#2 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1292): get_home_products(Object(WP_REST_Request))
+#3 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(1125): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/home...', Array, NULL)
+#4 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api\class-wp-rest-server.php(439): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\rest-api.php(449): WP_REST_Server->serve_request('/custom/v1/home...')
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(324): rest_api_loaded(Object(WP))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp.php(813): WP->parse_request('')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(1336): WP->main('')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-blog-header.php(16): wp()
+#13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
+#14 {main}
+  thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
