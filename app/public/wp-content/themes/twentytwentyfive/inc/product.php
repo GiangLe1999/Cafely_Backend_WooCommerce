@@ -131,29 +131,51 @@ function get_products_data($args) {
                     );
                 }
             }
+
+            // Get product attributes
+            $attributes = array();
+            $product_attributes = $product->get_attributes();
+
+            if (!empty($product_attributes)) {
+                foreach ($product_attributes as $attribute_name => $attribute) {
+                    $attribute_values = array();
+                    
+                    // For taxonomy-based attributes
+                    if ($attribute->is_taxonomy()) {
+                        $attribute_taxonomy = $attribute->get_taxonomy_object();
+                        $attribute_values = wp_get_post_terms($product_id, $attribute->get_name(), array('fields' => 'names'));
+                        $attribute_label = $attribute_taxonomy->attribute_label;
+                    } else {
+                        // For custom product attributes
+                        $attribute_values = $attribute->get_options();
+                        $attribute_label = $attribute->get_name();
+                    }
+                    
+                    $attributes[] = array(
+                        'name' => $attribute_label,
+                        'slug' => $attribute->get_name(),
+                        'position' => $attribute->get_position(),
+                        'visible' => $attribute->get_visible(),
+                        'variation' => $attribute->get_variation(),
+                        'options' => $attribute_values
+                    );
+                }
+            }
             
             // Format product data
             $products[] = array(
                 'id' => $product_id,
                 'name' => $product->get_name(),
                 'slug' => $product->get_slug(),
-                'permalink' => get_permalink($product_id),
-                'date_created' => $product->get_date_created() ? $product->get_date_created()->date('c') : null,
                 'price' => $product->get_price(),
-                'price_html' => $product->get_price_html(),
                 'regular_price' => $product->get_regular_price(),
                 'sale_price' => $product->get_sale_price(),
-                'on_sale' => $product->is_on_sale(),
-                'featured' => $product->is_featured(),
-                'description' => $product->get_description(),
                 'short_description' => $product->get_short_description(),
                 'average_rating' => $product->get_average_rating(),
                 'review_count' => $product->get_review_count(),
-                'total_sales' => $product->get_total_sales(),
-                'stock_status' => $product->get_stock_status(),
-                'categories' => $categories,
                 'thumbnail' => wp_get_attachment_image_url($product->get_image_id(), 'medium_large'),
-                'first_gallery_image' => get_first_gallery_image($product)
+                'first_gallery_image' => get_first_gallery_image($product),
+                'attributes' => $attributes
             );
         }
         wp_reset_postdata();
