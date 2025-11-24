@@ -1597,3 +1597,48 @@ Stack trace:
 #13 C:\Users\P52\Local Sites\cafely\app\public\index.php(17): require('C:\\Users\\P52\\Lo...')
 #14 {main}
   thrown in C:\Users\P52\Local Sites\cafely\app\public\wp-content\themes\twentytwentyfive\inc\product.php on line 146
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  include(phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/../wp-cli/php-cli-tools/lib\cli\Colors.php): Failed to open stream: phar error: Cannot open phar archive "C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar" for reading in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/ClassLoader.php on line 571
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  include(): Failed opening 'phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/../wp-cli/php-cli-tools/lib\cli\Colors.php' for inclusion (include_path='.:/usr/share/php:/www/wp-content/pear') in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/ClassLoader.php on line 571
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  require_once(phar://wp-cli.phar/vendor/wp-cli/php-cli-tools/lib/cli/Colors.php): Failed to open stream: phar error: Cannot open phar archive "C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar" for reading in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php on line 128
+[02-Apr-2025 12:51:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'phar://wp-cli.phar/vendor/wp-cli/php-cli-tools/lib/cli/Colors.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php:128
+Stack trace:
+#0 [internal function]: WP_CLI\Autoloader->autoload('cli\\Colors')
+#1 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Loggers/Base.php(78): class_exists('cli\\Colors')
+#2 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Loggers/Regular.php(52): WP_CLI\Loggers\Base->_line('Error reconnect...', 'Error', '%R', Resource id #3)
+#3 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/class-wp-cli.php(907): WP_CLI\Loggers\Regular->error('Error reconnect...')
+#4 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/utils-wp.php(112): WP_CLI::error('Error reconnect...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(3824): WP_CLI\Utils\wp_die_handler(Object(WP_Error), '', Array)
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(5499): wp_die(Object(WP_Error))
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wpdb.php(2190): dead_db()
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wpdb.php(2275): wpdb->check_connection()
+#9 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wpdb.php(3061): wpdb->query('SELECT option_v...')
+#10 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\option.php(214): wpdb->get_row('SELECT option_v...')
+#11 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\default-constants.php(176): get_option('siteurl')
+#12 C:\Users\P52\Local Sites\cafely\app\public\wp-settings.php(439): wp_plugin_directory_constants()
+#13 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1375): require('C:\\Users\\P52\\Lo...')
+#14 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1294): WP_CLI\Runner->load_wordpress()
+#15 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#16 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/bootstrap.php(83): WP_CLI\Bootstrap\LaunchRunner->process(Object(WP_CLI\Bootstrap\BootstrapState))
+#17 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php(32): WP_CLI\bootstrap()
+#18 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/php/boot-phar.php(20): include('phar://C:/Users...')
+#19 C:\Users\P52\AppData\Local\Programs\Local\resources\extraResources\bin\wp-cli\wp-cli.phar(4): include('phar://C:/Users...')
+#20 {main}
+  thrown in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php on line 128
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  include(phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/../wp-cli/php-cli-tools/lib\cli\Colors.php): Failed to open stream: phar error: Cannot open phar archive "C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar" for reading in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/ClassLoader.php on line 571
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  include(): Failed opening 'phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/../wp-cli/php-cli-tools/lib\cli\Colors.php' for inclusion (include_path='.:/usr/share/php:/www/wp-content/pear') in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/composer/ClassLoader.php on line 571
+[02-Apr-2025 12:51:26 UTC] PHP Warning:  require_once(phar://wp-cli.phar/vendor/wp-cli/php-cli-tools/lib/cli/Colors.php): Failed to open stream: phar error: Cannot open phar archive "C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar" for reading in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php on line 128
+[02-Apr-2025 12:51:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'phar://wp-cli.phar/vendor/wp-cli/php-cli-tools/lib/cli/Colors.php' (include_path='.:/usr/share/php:/www/wp-content/pear') in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php:128
+Stack trace:
+#0 [internal function]: WP_CLI\Autoloader->autoload('cli\\Colors')
+#1 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Loggers/Base.php(78): class_exists('cli\\Colors')
+#2 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Loggers/Regular.php(52): WP_CLI\Loggers\Base->_line('There has been ...', 'Error', '%R', Resource id #3)
+#3 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/class-wp-cli.php(907): WP_CLI\Loggers\Regular->error('There has been ...')
+#4 phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/utils-wp.php(112): WP_CLI::error('There has been ...')
+#5 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\functions.php(3824): WP_CLI\Utils\wp_die_handler(Object(WP_Error), '', Array)
+#6 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-fatal-error-handler.php(245): wp_die(Object(WP_Error), '', Array)
+#7 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-fatal-error-handler.php(156): WP_Fatal_Error_Handler->display_default_error_template(Array, false)
+#8 C:\Users\P52\Local Sites\cafely\app\public\wp-includes\class-wp-fatal-error-handler.php(60): WP_Fatal_Error_Handler->display_error_template(Array, false)
+#9 [internal function]: WP_Fatal_Error_Handler->handle()
+#10 {main}
+  thrown in phar://C:/Users/P52/AppData/Local/Programs/Local/resources/extraResources/bin/wp-cli/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Autoloader.php on line 128
+[05-Apr-2025 14:14:50 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query INSERT INTO `wp_options` (`option_name`, `option_value`, `autoload`) VALUES ('_site_transient_timeout_wp_theme_files_patterns-4be2d8e89cde39e37d9a2af0509f4aa0', '1743864290', 'off') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`), `autoload` = VALUES(`autoload`) made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, _register_theme_block_patterns, WP_Theme->get_block_patterns, WP_Theme->set_pattern_cache, set_site_transient, add_site_option, add_network_option, add_option
